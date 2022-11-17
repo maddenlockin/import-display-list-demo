@@ -15,7 +15,7 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: 18.x
-            - run: npm i esm jsdom @supabase/supabase-js
+            - run: npm i esm jsdom @supabase/supabase-js@1.35.7
             - run: npx eslint .
             - run: npx qunit test/index.js
               env:
