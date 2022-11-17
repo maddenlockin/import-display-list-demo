@@ -1,10 +1,20 @@
 /* Imports */
 
-/* Get DOM Elements */
+import { fetchMovies } from './fetch-utils.js';
+import { renderMovie } from './render-utils.js';
 
+/* Get DOM Elements */
+const moviesContainer = document.getElementById('movie-list');
 /* State */
 
 /* Events */
+window.addEventListener('load', async () => {
+    const movies = await fetchMovies();
+    for (let movie of movies) {
+        const movieEl = renderMovie(movie);
+        moviesContainer.append(movieEl);
+    }
+});
 
 /* Display Functions */
 
