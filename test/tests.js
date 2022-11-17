@@ -25,9 +25,7 @@ test('test movie render function', async (expect) => {
     // Call the function you're testing and set the result to a const
     const movies = await fetchMovies();
     const actual = renderMovie(movies[0]);
-    console.log('actual', actual);
-    console.log('outer', actual.outerHTML);
-    console.log('inner', actual.innerHTML);
+
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual.outerHTML, expected);
