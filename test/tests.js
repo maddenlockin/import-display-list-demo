@@ -13,18 +13,21 @@ test('example test...', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-import { renderDog } from '../utils.js';
-import { dogs } from '../dogs.js';
+import { fetchMovies } from '../fetch-utils.js';
+import { renderMovie } from '../render-utils.js';
 
-test('test dog render function', (expect) => {
+test('test movie render function', async (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = `<div class="dog"><h1>Benny</h1><img src="./assets/benny.png"><p>Benny is 6 years old with a cuteness factor of 10</p><h2>Breeds</h2><ul><li>Pekingese</li><li>Terrier</li><li>Chihauhau</li></ul></div>`;
+    const expected = `<div class=\"movie\"><h1>Rage of Angels: The Story Continues</h1><p>Rage of Angels: The Story Continues is a Drama</p><ul><li>Daveen</li><li>Trudey</li><li>Bendetta</li></ul></div>`;
 
     //Act
     // Call the function you're testing and set the result to a const
-    const actual = renderDog(dogs[0]);
-
+    const movies = await fetchMovies();
+    const actual = renderMovie(movies[0]);
+    console.log('actual', actual);
+    console.log('outer', actual.outerHTML);
+    console.log('inner', actual.innerHTML);
     //Expect
     // Make assertions about what is expected versus the actual result
     expect.equal(actual.outerHTML, expected);
