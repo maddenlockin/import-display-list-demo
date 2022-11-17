@@ -17,6 +17,6 @@ jobs:
                   node-version: 18.x
             - run: npm i esm jsdom @supabase/supabase-js
             - run: npx eslint .
-            - run: npx qunit test/index.js
+            - run: npx qunit @supabase/supabase-js test/index.js
               env:
                   CI: true
